@@ -1,5 +1,27 @@
 # Simple flake example to build docker images for different platforms
 
+## Quick Start (no checkout required)
+
+ARM (aarch64-linux):
+
+```bash
+$ nix build github:MaxDaten/flake-cross-container-example#hello-aarch64-linux
+$ skopeo inspect docker-archive:result | jq -r '.Os, .Architecture'
+linux
+arm64
+```
+
+x86 (x86_64-linux):
+
+```bash
+$ nix build github:MaxDaten/flake-cross-container-example#hello-x86_64-linux
+$ skopeo inspect docker-archive:result | jq -r '.Os, .Architecture'
+linux
+amd64
+```
+
+## Extended Guide
+
 To build images for different platforms using `nix build`, follow these steps:
 
 1. Ensure you have Nix installed on your system. If not, you can install it using the following command:
